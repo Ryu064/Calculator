@@ -1,12 +1,17 @@
+//document.getElementById = Dom객체에서 속성의 id값""인 것을 가져오겠다.
+//InnerText = html 태그를 해석하지 않고 텍스트를 그대로 출력해줌(있는 그대로를 출력)
 function getHistory(){
 	return document.getElementById("history-value").innerText;
 }
+//함수 getHistory 선언 id history-value의 값을 가져와 html태그를 해석하지않고 텍스트 그대로를 가져옴
 function printHistory(num){
 	document.getElementById("history-value").innerText=num;
 }
+//함수 printHistory(num) 선언 id history-value의 값을 가져와 html태그를 해석하지않고 텍스트 그대로를 가져오되, 텍스트는 숫자임
 function getOutput(){
 	return document.getElementById("output-value").innerText;
 }
+//함수 getOutput 선언 id output-value의 값을 가져와 html태그를 해석하지않고 텍스트 그대로를 가져옴
 function printOutput(num){
 	if(num==""){
 		document.getElementById("output-value").innerText=num;
@@ -15,6 +20,11 @@ function printOutput(num){
 		document.getElementById("output-value").innerText=getFormattedNumber(num);
 	}	
 }
+/*
+함수 printOuput(num) 선언, 
+만약 num이 ""과 같다면 ouput-value의 html태그를 해석하지않은 숫자를,
+아니라면 getFomattedNumber(num)을 실행한다.
+*/
 function getFormattedNumber(num){
 	if(num=="-"){
 		return "";
@@ -23,6 +33,14 @@ function getFormattedNumber(num){
 	var value = n.toLocaleString("en");
 	return value;
 }
+/*
+함수 getFormattedNumber(num)선언
+만약 num이 -과 같다면
+""을 불러온다
+변수 n = Number(num) 선언
+변수 value = 변수n을 미국지역의 숫자 표기 방식을 사용한다.
+value를 불러온다.
+*/
 function reverseNumberFormat(num){
 	return Number(num.replace(/,/g,''));
 }
